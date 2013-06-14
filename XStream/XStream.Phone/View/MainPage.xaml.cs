@@ -1,6 +1,6 @@
 ﻿using Microsoft.Phone.Controls;
 
-namespace XStream.Phone
+namespace XStream.Phone.View
 {
     public partial class MainPage : PhoneApplicationPage
     {
