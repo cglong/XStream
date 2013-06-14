@@ -2,8 +2,7 @@
 	xmlns:Model="clr-namespace:XStream.Phone.Model"
 	ApplicationTitle="XSTREAM"
 	PageTitle="artists"
-	IsInDesignMode="True"
-	IsInDesignModeStatic="False">
+	IsInDesignMode="True">
 	
 	<ViewModel:MainViewModel.Artists>
 		<Model:Artist Name="deadmau5" ImageURL="http://userserve-ak.last.fm/serve/_/66078728/deadmau5+xx.png"/>
