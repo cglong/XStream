@@ -41,7 +41,8 @@
         <!--ContentPanel - place additional content here-->
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
-            <ListBox ItemsSource="{Binding Artists}">
+            <ListBox ItemsSource="{Binding Artists}"
+                     SelectedItem="{Binding SelectedArtist, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>

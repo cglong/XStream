@@ -1,5 +1,7 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using System.Collections.Generic;
+using XStream.Phone.Core;
 using XStream.Phone.Model;
 
 namespace XStream.Phone.ViewModel
@@ -35,6 +37,23 @@ namespace XStream.Phone.ViewModel
         }
 
         public IList<Artist> Artists { get; set; }
+
+        private Artist _selectedArtist;
+        private const string SelectedArtistPropertyName = "SelectedArtist";
+        public Artist SelectedArtist
+        {
+            get
+            {
+                return _selectedArtist;
+            }
+            set
+            {
+                if (Set(SelectedArtistPropertyName, ref _selectedArtist, value) && value != null)
+                {
+                    Messenger.Default.Send<Artist>(_selectedArtist);
+                }
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
