@@ -1,0 +1,16 @@
+﻿<ViewModel:MainViewModel xmlns:ViewModel="clr-namespace:XStream.Phone.ViewModel"
+	xmlns:Model="clr-namespace:XStream.Phone.Model"
+	ApplicationTitle="XSTREAM"
+	PageTitle="artists"
+	IsInDesignMode="True"
+	IsInDesignModeStatic="False">
+	
+	<ViewModel:MainViewModel.Artists>
+		<Model:Artist Name="deadmau5" ImageURL="http://userserve-ak.last.fm/serve/_/66078728/deadmau5+xx.png"/>
+		<Model:Artist Name="Maroon 5" ImageURL="http://userserve-ak.last.fm/serve/500/89687701/Maroon+5+Hi+Res+Secondary+Image.jpg"/>
+		<Model:Artist Name="Nine Inch Nails" ImageURL="http://userserve-ak.last.fm/serve/_/4827015/Nine+Inch+Nails.jpg"/>
+		<Model:Artist Name="Passion Pit" ImageURL="http://userserve-ak.last.fm/serve/_/39757889/Passion+Pit++PNG+1.png"/>
+		<Model:Artist Name="Silversun Pickups" ImageURL="http://userserve-ak.last.fm/serve/500/7730035/Silversun+Pickups+silversunpickupspressphoto1.jpg"/>
+	</ViewModel:MainViewModel.Artists>
+
+</ViewModel:MainViewModel>
