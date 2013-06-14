@@ -24,6 +24,14 @@ namespace XStream.Phone.ViewModel
             }
         }
 
+        public string PageTitle
+        {
+            get
+            {
+                return "Artists";
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>

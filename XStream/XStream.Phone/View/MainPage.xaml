@@ -16,6 +16,7 @@
     DataContext="{Binding Main, Source={StaticResource Locator}}">
     
     <phone:PhoneApplicationPage.Resources>
+        <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
         <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
@@ -31,7 +32,7 @@
                     Margin="12,17,0,28">
             <TextBlock Text="{Binding ApplicationTitle, Converter={StaticResource UppercaseValueConverter}}"
                        Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name"
+            <TextBlock Text="{Binding PageTitle, Converter={StaticResource LowercaseValueConverter}}"
                        Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
