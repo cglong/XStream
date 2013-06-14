@@ -1,4 +1,6 @@
 using GalaSoft.MvvmLight;
+using System.Collections.Generic;
+using XStream.Phone.Model;
 
 namespace XStream.Phone.ViewModel
 {
@@ -31,6 +33,8 @@ namespace XStream.Phone.ViewModel
                 return "Artists";
             }
         }
+
+        public IList<Artist> Artists { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
