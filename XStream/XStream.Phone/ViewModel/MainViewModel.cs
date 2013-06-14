@@ -16,6 +16,14 @@ namespace XStream.Phone.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        public string ApplicationTitle
+        {
+            get
+            {
+                return "XStream";
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
