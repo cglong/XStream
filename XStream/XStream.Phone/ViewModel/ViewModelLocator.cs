@@ -33,6 +33,7 @@ namespace XStream.Phone.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            SimpleIoc.Default.Register<NavigationService>();
 
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
@@ -44,8 +45,6 @@ namespace XStream.Phone.ViewModel
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
-
-            SimpleIoc.Default.Register<NavigationService>(() => new NavigationService());
 
             SimpleIoc.Default.Register<MainViewModel>();
         }
