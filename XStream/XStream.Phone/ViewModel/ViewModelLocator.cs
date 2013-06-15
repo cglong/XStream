@@ -15,6 +15,9 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using XStream.Phone.Core;
+using XStream.Phone.Model;
 
 namespace XStream.Phone.ViewModel
 {
@@ -42,6 +45,8 @@ namespace XStream.Phone.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            SimpleIoc.Default.Register<NavigationService>(() => new NavigationService());
+
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
@@ -51,6 +56,12 @@ namespace XStream.Phone.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
+        }
+
+        public static Uri ArtistPageUri(Artist artist)
+        {
+            string uri = string.Format("/View/ArtistPage.xaml?name={0}", artist.Name);
+            return new Uri(uri, UriKind.Relative);
         }
         
         public static void Cleanup()

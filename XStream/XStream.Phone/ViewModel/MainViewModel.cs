@@ -1,5 +1,4 @@
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Messaging;
 using System.Collections.Generic;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
@@ -20,6 +19,13 @@ namespace XStream.Phone.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private NavigationService _navigationService;
+
+        public MainViewModel(NavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
         public string ApplicationTitle
         {
             get
@@ -50,23 +56,8 @@ namespace XStream.Phone.ViewModel
             {
                 if (Set(SelectedArtistPropertyName, ref _selectedArtist, value) && value != null)
                 {
-                    Messenger.Default.Send<Artist>(_selectedArtist);
+                    _navigationService.NavigateTo(ViewModelLocator.ArtistPageUri(_selectedArtist));
                 }
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainViewModel()
-        {
-            if (IsInDesignMode)
-            {
-                // Code runs in Blend --> create design time data.
-            }
-            else
-            {
-                // Code runs "for real"
             }
         }
     }
