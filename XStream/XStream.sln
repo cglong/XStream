@@ -10,15 +10,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E1175C
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "XStream.Web", "XStream.Web\XStream.Web.pyproj", "{D35D8E91-B3F2-4E4A-81C1-E626AB4B3E4D}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://cglong.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = XStream.Phone\\XStream.Phone.csproj
 		SccProjectName1 = XStream.Phone
 		SccLocalPath1 = XStream.Phone
+		SccProjectUniqueName2 = XStream.Web\\XStream.Web.pyproj
+		SccProjectName2 = XStream.Web
+		SccLocalPath2 = XStream.Web
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +36,10 @@ Global
 		{43A99E4D-7409-4724-9632-04E8F3F84C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43A99E4D-7409-4724-9632-04E8F3F84C17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{43A99E4D-7409-4724-9632-04E8F3F84C17}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D35D8E91-B3F2-4E4A-81C1-E626AB4B3E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35D8E91-B3F2-4E4A-81C1-E626AB4B3E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35D8E91-B3F2-4E4A-81C1-E626AB4B3E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35D8E91-B3F2-4E4A-81C1-E626AB4B3E4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

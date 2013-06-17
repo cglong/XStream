@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d35d8e91-b3f2-4e4a-81c1-e626ab4b3e4d</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>setup.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <InterpreterId>00000000-0000-0000-0000-000000000000</InterpreterId>
+    <InterpreterVersion>
+    </InterpreterVersion>
+    <Name>XStream.Web</Name>
+    <RootNamespace>XStream.Web</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="setup.py" />
+    <Compile Include="shiva\app.py" />
+    <Compile Include="shiva\converter.py" />
+    <Compile Include="shiva\decorators.py" />
+    <Compile Include="shiva\exceptions.py" />
+    <Compile Include="shiva\fields.py" />
+    <Compile Include="shiva\fileserver.py" />
+    <Compile Include="shiva\http.py" />
+    <Compile Include="shiva\indexer.py" />
+    <Compile Include="shiva\media.py" />
+    <Compile Include="shiva\mocks.py" />
+    <Compile Include="shiva\models.py" />
+    <Compile Include="shiva\resources.py" />
+    <Compile Include="shiva\utils.py" />
+    <Compile Include="shiva\__init__.py" />
+    <Compile Include="shiva\config\project.py" />
+    <Compile Include="shiva\config\__init__.py" />
+    <Compile Include="shiva\lyrics\azlyrics.py" />
+    <Compile Include="shiva\lyrics\base.py" />
+    <Compile Include="shiva\lyrics\letrascanciones.py" />
+    <Compile Include="shiva\lyrics\metrolyrics.py" />
+    <Compile Include="shiva\lyrics\__init__.py" />
+    <Compile Include="var\restideas.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="shiva" />
+    <Folder Include="shiva\config" />
+    <Folder Include="shiva\lyrics" />
+    <Folder Include="var" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
