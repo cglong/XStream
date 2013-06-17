@@ -45,13 +45,16 @@
                      SelectedItem="{Binding SelectedArtist, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid Height="150">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             
-                            <Image Source="{Binding ImageURL}"/>
+                            <Image Source="{Binding ImageURL}"
+                                   Stretch="UniformToFill"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
                             
                             <TextBlock Text="{Binding Name}"
                                        Grid.Column="1"/>
