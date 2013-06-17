@@ -7,8 +7,7 @@
     <ProjectHome>
     </ProjectHome>
     <StartupFile>setup.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>site-packages</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <InterpreterId>00000000-0000-0000-0000-000000000000</InterpreterId>
