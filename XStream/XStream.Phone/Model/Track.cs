@@ -8,7 +8,7 @@ namespace XStream.Phone.Model
         public int Bitrate { get; set; }
         public int Id { get; set; }
         public int Length { get; set; }
-        public int Track { get; set; }
+        public int TrackNumber { get; set; }
         public string Slug { get; set; }
         public string Title { get; set; }
         public string Uri { get; set; }
