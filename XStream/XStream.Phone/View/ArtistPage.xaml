@@ -51,7 +51,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="{Binding Cover}"
+                            <Image Source="{Binding ImageURL}"
                                    Stretch="UniformToFill"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>

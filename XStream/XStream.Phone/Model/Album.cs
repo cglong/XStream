@@ -8,7 +8,7 @@ namespace XStream.Phone.Model
         public string Name { get; set; }
         public int Year { get; set; }
         public string Uri { get; set; }
-        public string Cover { get; set; }
+        public string ImageURL { get; set; }
         public int Id { get; set; }
         public string Slug { get; set; }
     }
