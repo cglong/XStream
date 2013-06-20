@@ -89,6 +89,7 @@
     <Compile Include="Core\LowercaseValueConverter.cs" />
     <Compile Include="Core\NavigationService.cs" />
     <Compile Include="Core\UppercaseValueConverter.cs" />
+    <Compile Include="ViewModel\ArtistViewModel.cs" />
     <Compile Include="View\ArtistPage.xaml.cs">
       <DependentUpon>ArtistPage.xaml</DependentUpon>
     </Compile>
