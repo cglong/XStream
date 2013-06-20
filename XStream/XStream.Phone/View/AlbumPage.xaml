@@ -39,6 +39,8 @@
                        Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
+        
+        
         <!--ContentPanel - place additional content here-->
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
