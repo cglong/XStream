@@ -1,0 +1,15 @@
+﻿<ViewModel:ArtistViewModel xmlns:ViewModel="clr-namespace:XStream.Phone.ViewModel"
+	xmlns:Model="clr-namespace:XStream.Phone.Model"
+	ApplicationTitle="Maroon 5"
+	PageTitle="Albums"
+	IsInDesignMode="True">
+	
+	<ViewModel:ArtistViewModel.Albums>
+		<Model:Album Name="deadmau5" Cover="http://userserve-ak.last.fm/serve/_/66078728/deadmau5+xx.png"/>
+		<Model:Album Name="Maroon 5" Cover="http://userserve-ak.last.fm/serve/500/89687701/Maroon+5+Hi+Res+Secondary+Image.jpg"/>
+		<Model:Album Name="Nine Inch Nails" Cover="http://userserve-ak.last.fm/serve/_/4827015/Nine+Inch+Nails.jpg"/>
+		<Model:Album Name="Passion Pit" Cover="http://userserve-ak.last.fm/serve/_/39757889/Passion+Pit++PNG+1.png"/>
+		<Model:Album Name="Silversun Pickups" Cover="http://userserve-ak.last.fm/serve/500/7730035/Silversun+Pickups+silversunpickupspressphoto1.jpg"/>
+	</ViewModel:ArtistViewModel.Albums>
+
+</ViewModel:ArtistViewModel>
