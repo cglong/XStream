@@ -47,6 +47,7 @@ namespace XStream.Phone.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ArtistViewModel>();
         }
 
         public MainViewModel Main
@@ -54,6 +55,14 @@ namespace XStream.Phone.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public ArtistViewModel Artist
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ArtistViewModel>();
             }
         }
 

@@ -13,7 +13,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    DataContext="{Binding Main, Source={StaticResource Locator}}"
+    DataContext="{Binding Artist, Source={StaticResource Locator}}"
     d:DataContext="{d:DesignData Source=../SampleData/ArtistViewModelSampleData.xaml}">
 
     <phone:PhoneApplicationPage.Resources>
