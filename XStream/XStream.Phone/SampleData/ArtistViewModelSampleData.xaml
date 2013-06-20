@@ -5,11 +5,10 @@
 	IsInDesignMode="True">
 	
 	<ViewModel:ArtistViewModel.Albums>
-		<Model:Album Name="deadmau5" ImageURL="http://userserve-ak.last.fm/serve/_/66078728/deadmau5+xx.png"/>
-		<Model:Album Name="Maroon 5" ImageURL="http://userserve-ak.last.fm/serve/500/89687701/Maroon+5+Hi+Res+Secondary+Image.jpg"/>
-		<Model:Album Name="Nine Inch Nails" ImageURL="http://userserve-ak.last.fm/serve/_/4827015/Nine+Inch+Nails.jpg"/>
-		<Model:Album Name="Passion Pit" ImageURL="http://userserve-ak.last.fm/serve/_/39757889/Passion+Pit++PNG+1.png"/>
-		<Model:Album Name="Silversun Pickups" ImageURL="http://userserve-ak.last.fm/serve/500/7730035/Silversun+Pickups+silversunpickupspressphoto1.jpg"/>
+		<Model:Album Name="Overexposed" ImageURL="http://userserve-ak.last.fm/serve/_/76524794/Overexposed++Maroon+5+PNG+HQ.png"/>
+		<Model:Album Name="Hands All Over" ImageURL="http://userserve-ak.last.fm/serve/_/48547381/Hands+All+Over.png"/>
+		<Model:Album Name="It Won't Be Soon Before Long" ImageURL="http://userserve-ak.last.fm/serve/_/29051805/It+Wont+Be+Soon+Before+Long.png"/>
+		<Model:Album Name="Songs About Jane" ImageURL="http://userserve-ak.last.fm/serve/_/50461839/Songs+About+Jane+Maroon+5+PNG.png"/>
 	</ViewModel:ArtistViewModel.Albums>
 
 </ViewModel:ArtistViewModel>
