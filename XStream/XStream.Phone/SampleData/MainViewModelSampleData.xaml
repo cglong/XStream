@@ -1,7 +1,7 @@
 ﻿<ViewModel:MainViewModel xmlns:ViewModel="clr-namespace:XStream.Phone.ViewModel"
 	xmlns:Model="clr-namespace:XStream.Phone.Model"
-	ApplicationTitle="XSTREAM"
-	PageTitle="artists"
+	ApplicationTitle="XStream"
+	PageTitle="Artists"
 	IsInDesignMode="True">
 	
 	<ViewModel:MainViewModel.Artists>
