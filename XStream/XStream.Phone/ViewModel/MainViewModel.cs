@@ -1,5 +1,8 @@
+using AgFx;
 using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
 
@@ -24,6 +27,7 @@ namespace XStream.Phone.ViewModel
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
+            DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
         }
 
         public string ApplicationTitle
@@ -42,7 +46,28 @@ namespace XStream.Phone.ViewModel
             }
         }
 
-        public IList<Artist> Artists { get; set; }
+        private IList<Artist> _artists = new ObservableCollection<Artist>();
+        private const string ArtistsPropertyName = "Artists";
+        public IList<Artist> Artists
+        {
+            get
+            {
+                return _artists;
+            }
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+                if (_artists != null)
+                {
+                    _artists.Clear();
+                    foreach (var artist in value)
+                    {
+                        _artists.Add(artist);
+                    }
+                    RaisePropertyChanged(ArtistsPropertyName);
+                }
+            }
+        }
 
         private Artist _selectedArtist;
         private const string SelectedArtistPropertyName = "SelectedArtist";
