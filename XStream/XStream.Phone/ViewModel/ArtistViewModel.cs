@@ -1,5 +1,8 @@
-﻿using GalaSoft.MvvmLight;
+﻿using AgFx;
+using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
 
@@ -53,10 +56,32 @@ namespace XStream.Phone.ViewModel
             set
             {
                 Set(ArtistPropertyName, ref _artist, value);
+            DataManager.Current.Load<AlbumsList>(_artist.Id, (result) => { Albums = result.Albums; }, null);
             }
         }
 
-        public IList<Album> Albums { get; set; }
+        private IList<Album> _albums = new ObservableCollection<Album>();
+        private const string AlbumsPropertyName = "Albums";
+        public IList<Album> Albums
+        {
+            get
+            {
+                return _albums;
+            }
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+                if (_albums != null)
+                {
+                    _albums.Clear();
+                    foreach (var artist in value)
+                    {
+                        _albums.Add(artist);
+                    }
+                    RaisePropertyChanged(AlbumsPropertyName);
+                }
+            }
+        }
 
         private Album _selectedAlbum;
         private const string SelectedAlbumPropertyName = "SelectedAlbum";
