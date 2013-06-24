@@ -68,7 +68,7 @@ namespace XStream.Phone.ViewModel
 
         public static Uri ArtistPageUri(Artist artist)
         {
-            string uri = string.Format("/View/ArtistPage.xaml?name={0}", artist.Name);
+            string uri = string.Format("/View/ArtistPage.xaml?name={0}&id={1}", artist.Name, artist.Id);
             return new Uri(uri, UriKind.Relative);
         }
         

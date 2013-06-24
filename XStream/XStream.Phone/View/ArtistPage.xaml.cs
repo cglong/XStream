@@ -15,8 +15,11 @@ namespace XStream.Phone.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            int id = int.Parse(NavigationContext.QueryString["id"]);
-            (DataContext as ArtistViewModel).Artist = new Artist { Id = id };
+            (DataContext as ArtistViewModel).Artist = new Artist
+            {
+                Name = NavigationContext.QueryString["name"],
+                Id = int.Parse(NavigationContext.QueryString["id"]),
+            };
         }
     }
 }
