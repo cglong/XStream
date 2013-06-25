@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace XStream.Phone.Model
 {
@@ -15,5 +16,8 @@ namespace XStream.Phone.Model
 
         [JsonProperty("uri")]
         public string Uri { get; set; }
+
+        [JsonProperty("files")]
+        public IDictionary<string, string> Files { get; set; }
     }
 }
