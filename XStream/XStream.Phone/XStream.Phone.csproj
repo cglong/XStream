@@ -100,7 +100,9 @@
     <Compile Include="Core\UppercaseValueConverter.cs" />
     <Compile Include="Model\AlbumsList.cs" />
     <Compile Include="Model\ArtistsList.cs" />
+    <Compile Include="Model\TracksList.cs" />
     <Compile Include="ViewModel\ArtistViewModel.cs" />
+    <Compile Include="ViewModel\TrackViewModel.cs" />
     <Compile Include="View\AlbumPage.xaml.cs">
       <DependentUpon>AlbumPage.xaml</DependentUpon>
     </Compile>
@@ -116,6 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\TrackPage.xaml.cs">
+      <DependentUpon>TrackPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -135,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrackPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
