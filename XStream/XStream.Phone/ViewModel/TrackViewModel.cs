@@ -1,8 +1,10 @@
 ﻿using AgFx;
 using GalaSoft.MvvmLight;
+using Microsoft.Phone.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
 
@@ -75,6 +77,7 @@ namespace XStream.Phone.ViewModel
 
         private Track _selectedTrack;
         private const string SelectedTrackPropertyName = "SelectedTrack";
+        private const string audioKey = "audio/mp3";
         public Track SelectedTrack
         {
             get
@@ -85,7 +88,13 @@ namespace XStream.Phone.ViewModel
             {
                 if (Set(SelectedTrackPropertyName, ref _selectedTrack, value) && value != null)
                 {
-                    
+                	//MediaElement launcher = new MediaElement();
+                    MediaPlayerLauncher launcher = new MediaPlayerLauncher();
+                    launcher.Media = new Uri(value.Files[audioKey].Substring(0, 28) + value.Files[audioKey].Substring(34, value.Files[audioKey].Length-34), UriKind.Absolute);
+                    launcher.Show();
+                    //launcher.Play();
+					
+	    
                 }
             }
         }
