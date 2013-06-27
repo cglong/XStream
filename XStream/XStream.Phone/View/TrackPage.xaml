@@ -45,7 +45,9 @@
                      SelectedItem="{Binding SelectedTrack, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Title}" />
+                        <TextBlock Text="{Binding Title}"
+                                   Style="{StaticResource PhoneTextLargeStyle}"
+                                   TextWrapping="Wrap"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
