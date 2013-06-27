@@ -63,7 +63,7 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<ArtistViewModel>();
+                return ServiceLocator.Current.GetInstance<ArtistViewModel>(Guid.NewGuid().ToString());
             }
         }
 
@@ -71,7 +71,7 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<TrackViewModel>();
+                return ServiceLocator.Current.GetInstance<TrackViewModel>(Guid.NewGuid().ToString());
             }
 
         }
