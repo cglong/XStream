@@ -27,7 +27,8 @@ namespace XStream.Phone.ViewModel
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
-            DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
+            ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
+            artistsList.PropertyChanged += (s, e) => { IsUpdating = (s as ArtistsList).IsUpdating; };
         }
 
         public string ApplicationTitle
@@ -43,6 +44,28 @@ namespace XStream.Phone.ViewModel
             get
             {
                 return "Artists";
+            }
+        }
+
+        private bool _isUpdating;
+        private const string IsUpdatingPropertyName = "IsUpdating";
+        public bool IsUpdating
+        {
+            get
+            {
+                return _isUpdating;
+            }
+            set
+            {
+                Set(IsUpdatingPropertyName, ref _isUpdating, value);
+            }
+        }
+
+        public string UpdatingTitle
+        {
+            get
+            {
+                return "Updating...";
             }
         }
 
