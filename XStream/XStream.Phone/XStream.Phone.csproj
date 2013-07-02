@@ -103,9 +103,6 @@
     <Compile Include="Model\TracksList.cs" />
     <Compile Include="ViewModel\ArtistViewModel.cs" />
     <Compile Include="ViewModel\TrackViewModel.cs" />
-    <Compile Include="View\AlbumPage.xaml.cs">
-      <DependentUpon>AlbumPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ArtistPage.xaml.cs">
       <DependentUpon>ArtistPage.xaml</DependentUpon>
     </Compile>
@@ -131,10 +128,6 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </DesignData>
-    <Page Include="View\AlbumPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ArtistPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
