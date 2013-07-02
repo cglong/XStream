@@ -56,6 +56,7 @@ namespace XStream.Phone.ViewModel
             set
             {
                 Set(ArtistPropertyName, ref _artist, value);
+                Albums.Clear();
                 DataManager.Current.Load<AlbumsList>(_artist.Id, (result) => { Albums = result.Albums; }, null);
             }
         }

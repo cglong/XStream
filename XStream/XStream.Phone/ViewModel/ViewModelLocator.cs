@@ -12,7 +12,6 @@
   See http://www.galasoft.ch/mvvm
 */
 
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using System;
@@ -63,7 +62,7 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<ArtistViewModel>(Guid.NewGuid().ToString());
+                return ServiceLocator.Current.GetInstance<ArtistViewModel>();
             }
         }
 
@@ -71,7 +70,7 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<TrackViewModel>(Guid.NewGuid().ToString());
+                return ServiceLocator.Current.GetInstance<TrackViewModel>();
             }
 
         }
