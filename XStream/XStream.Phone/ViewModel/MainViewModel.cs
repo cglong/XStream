@@ -1,6 +1,7 @@
 using AgFx;
 using GalaSoft.MvvmLight;
 using System;
+using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using XStream.Phone.Core;
@@ -75,6 +76,7 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
+                AlphaSort(_artists, new AlphaSorter());
                 return _artists;
             }
             set
@@ -91,6 +93,28 @@ namespace XStream.Phone.ViewModel
                 }
             }
         }
+
+        private void AlphaSort(IList<Artist> _artists, AlphaSorter alphaSorter)
+        {
+            throw new NotImplementedException();
+        }
+        //Alphabetically sorting - Aditya
+        public static void AlphaSort(IList<Artist> artList, Comparison<Artist> comparison)
+        {
+            Artist[] myArtists = new Artist[artList.Count];
+            Array.Sort(myArtists, new AlphaSorter());
+           // ArrayList.Adapter((IList)list).Sort(new ComparisonComparer<T>(comparison));
+         }
+       
+            class AlphaSorter: IComparer<Artist>
+            {
+                public int compare(Artist X, Artist Y) {
+                    return X.Name.CompareTo(Y.Name);
+                }
+            }
+
+        
+
 
         private Artist _selectedArtist;
         private const string SelectedArtistPropertyName = "SelectedArtist";

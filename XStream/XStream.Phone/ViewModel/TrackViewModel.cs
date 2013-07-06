@@ -59,6 +59,7 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
+                GammaSort(_tracks, new GammaSorter());
                 return _tracks;
             }
             set
@@ -75,6 +76,27 @@ namespace XStream.Phone.ViewModel
                 }
             }
         }
+
+        private void GammaSort(IList<Track> _tracks, GammaSorter betaSorter)
+        {
+            throw new NotImplementedException();
+        }
+        //Alphabetically sorting - Aditya
+        public static void BetaSort(IList<Track> trkList, Comparison<Track> comparison)
+        {
+            Track[] myTracks = new Track[trkList.Count];
+            Array.Sort(myTracks, new GammaSorter());
+            // ArrayList.Adapter((IList)list).Sort(new ComparisonComparer<T>(comparison));
+        }
+
+        class GammaSorter : IComparer<Track>
+        {
+            public int compare(Track X, Track Y)
+            {
+                return X.Title.CompareTo(Y.Title);
+            }
+        }
+
 
         private Track _selectedTrack;
         private const string SelectedTrackPropertyName = "SelectedTrack";
