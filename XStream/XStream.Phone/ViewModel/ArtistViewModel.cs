@@ -50,6 +50,29 @@ namespace XStream.Phone.ViewModel
             }
         }
 
+        private bool _isUpdating;
+        private const string IsUpdatingPropertyName = "IsUpdating";
+        public bool IsUpdating
+        {
+            get
+            {
+                return _isUpdating;
+            }
+            set
+            {
+                Set(IsUpdatingPropertyName, ref _isUpdating, value);
+            }
+        }
+
+        public string UpdatingTitle
+        {
+            get
+            {
+                return "Updating...";
+            }
+        }
+
+
         private Artist _artist;
         private const string ArtistPropertyName = "Artist";
         public Artist Artist
@@ -62,7 +85,8 @@ namespace XStream.Phone.ViewModel
             {
                 Set(ArtistPropertyName, ref _artist, value);
                 Albums.Clear();
-                DataManager.Current.Load<AlbumsList>(_artist.Id, (result) => { Albums = result.Albums; }, null);
+                AlbumsList albumsList = DataManager.Current.Load<AlbumsList>(_artist.Id, (result) => { Albums = result.Albums; }, null);
+                albumsList.PropertyChanged += (s, e) => { IsUpdating = (s as AlbumsList).IsUpdating; };
             }
         }
 
@@ -80,7 +104,7 @@ namespace XStream.Phone.ViewModel
 
         class BetaSorter : IComparer<Album>
         {
-            public int compare(Album X, Album Y)
+            public int Compare(Album X, Album Y)
             {
                 return X.Name.CompareTo(Y.Name);
             }

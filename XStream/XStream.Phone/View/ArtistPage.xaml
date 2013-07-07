@@ -21,6 +21,12 @@
         <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsVisible="{Binding IsUpdating}"
+                                 Text="{Binding UpdatingTitle}"
+                                 IsIndeterminate="True"/>
+    </shell:SystemTray.ProgressIndicator>
+
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid Background="Transparent">
         <Grid.RowDefinitions>

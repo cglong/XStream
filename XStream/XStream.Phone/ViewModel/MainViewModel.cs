@@ -103,15 +103,16 @@ namespace XStream.Phone.ViewModel
         {
             Artist[] myArtists = new Artist[artList.Count];
             Array.Sort(myArtists, new AlphaSorter());
-           // ArrayList.Adapter((IList)list).Sort(new ComparisonComparer<T>(comparison));
-         }
-       
-            class AlphaSorter: IComparer<Artist>
+            // ArrayList.Adapter((IList)list).Sort(new ComparisonComparer<T>(comparison));
+        }
+
+        class AlphaSorter : IComparer<Artist>
+        {
+            public int Compare(Artist X, Artist Y)
             {
-                public int compare(Artist X, Artist Y) {
-                    return X.Name.CompareTo(Y.Name);
-                }
+                return X.Name.CompareTo(Y.Name);
             }
+        }
 
         
 
