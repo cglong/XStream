@@ -45,25 +45,25 @@ namespace XStream.Phone.ViewModel
             }
         }
 
-        private bool _isUpdating;
-        private const string IsUpdatingPropertyName = "IsUpdating";
-        public bool IsUpdating
+        private bool _isLoading;
+        private const string IsLoadingPropertyName = "IsLoading";
+        public bool IsLoading
         {
             get
             {
-                return _isUpdating;
+                return _isLoading;
             }
             set
             {
-                Set(IsUpdatingPropertyName, ref _isUpdating, value);
+                Set(IsLoadingPropertyName, ref _isLoading, value);
             }
         }
 
-        public string UpdatingTitle
+        public string LoadingTitle
         {
             get
             {
-                return "Updating...";
+                return "Loading...";
             }
         }
 
@@ -81,7 +81,7 @@ namespace XStream.Phone.ViewModel
                 Set(ArtistPropertyName, ref _artist, value);
                 Albums.Clear();
                 AlbumsList albumsList = DataManager.Current.Load<AlbumsList>(_artist.Id, (result) => { Albums = result.Albums; }, null);
-                albumsList.PropertyChanged += (s, e) => { IsUpdating = (s as AlbumsList).IsUpdating; };
+                albumsList.PropertyChanged += (s, e) => { IsLoading = (s as AlbumsList).IsUpdating; };
             }
         }
 

@@ -22,8 +22,8 @@
     </phone:PhoneApplicationPage.Resources>
 
     <shell:SystemTray.ProgressIndicator>
-        <shell:ProgressIndicator IsVisible="{Binding IsUpdating}"
-                                 Text="{Binding UpdatingTitle}"
+        <shell:ProgressIndicator IsVisible="{Binding IsLoading}"
+                                 Text="{Binding LoadingTitle}"
                                  IsIndeterminate="True"/>
     </shell:SystemTray.ProgressIndicator>
 
