@@ -17,6 +17,7 @@
 
     <phone:PhoneApplicationPage.Resources>
         <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
+        <core:TracksListValueConverter x:Key="TracksListValueConverter"/>
         <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
 
@@ -47,7 +48,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
-            <ListBox ItemsSource="{Binding Tracks}"
+            <ListBox ItemsSource="{Binding Tracks, Converter={StaticResource TracksListValueConverter}}"
                      SelectedItem="{Binding SelectedTrack, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

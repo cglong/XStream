@@ -4,11 +4,8 @@ using Microsoft.Phone.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
-
-
 
 namespace XStream.Phone.ViewModel
 {
@@ -82,7 +79,6 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
-                GammaSort(_tracks, new GammaSorter());
                 return _tracks;
             }
             set
@@ -100,27 +96,6 @@ namespace XStream.Phone.ViewModel
             }
         }
 
-        private void GammaSort(IList<Track> _tracks, GammaSorter betaSorter)
-        {
-            throw new NotImplementedException();
-        }
-        //Alphabetically sorting - Aditya
-        public static void BetaSort(IList<Track> trkList, Comparison<Track> comparison)
-        {
-            Track[] myTracks = new Track[trkList.Count];
-            Array.Sort(myTracks, new GammaSorter());
-            // ArrayList.Adapter((IList)list).Sort(new ComparisonComparer<T>(comparison));
-        }
-
-        class GammaSorter : IComparer<Track>
-        {
-            public int Compare(Track X, Track Y)
-            {
-                return X.Title.CompareTo(Y.Title);
-            }
-        }
-
-
         private Track _selectedTrack;
         private const string SelectedTrackPropertyName = "SelectedTrack";
         private const string audioKey = "audio/mp3";
@@ -134,13 +109,13 @@ namespace XStream.Phone.ViewModel
             {
                 if (Set(SelectedTrackPropertyName, ref _selectedTrack, value) && value != null)
                 {
-                	//MediaElement launcher = new MediaElement();
+                    //MediaElement launcher = new MediaElement();
                     MediaPlayerLauncher launcher = new MediaPlayerLauncher();
                     launcher.Media = new Uri(value.Files[audioKey].Substring(0, 28) + value.Files[audioKey].Substring(34, value.Files[audioKey].Length-34), UriKind.Absolute);
                     launcher.Show();
                     //launcher.Play();
-					
-	    
+                    
+        
                 }
             }
         }

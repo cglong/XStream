@@ -5,11 +5,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
-using System;
-using System.Collections.Specialized;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using AgFx;
 
 namespace XStream.Phone.ViewModel
 {
@@ -90,26 +85,6 @@ namespace XStream.Phone.ViewModel
             }
         }
 
-        private void BetaSort(IList<Album> _artists, BetaSorter betaSorter)
-        {
-            throw new NotImplementedException();
-        }
-        //Alphabetically sorting - Aditya
-        public static void BetaSort(IList<Album> albList, Comparison<Album> comparison)
-        {
-            Album[] myArtists = new Album[albList.Count];
-            Array.Sort(myArtists, new BetaSorter());
-            // ArrayList.Adapter((IList)list).Sort(new ComparisonComparer<T>(comparison));
-        }
-
-        class BetaSorter : IComparer<Album>
-        {
-            public int Compare(Album X, Album Y)
-            {
-                return X.Name.CompareTo(Y.Name);
-            }
-        }
-
         private IList<Album> _albums = new ObservableCollection<Album>();
         private const string AlbumsPropertyName = "Albums";
         public IList<Album> Albums
@@ -139,7 +114,6 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
-                BetaSort(Albums, new BetaSorter());
                 return _selectedAlbum;
             }
             set

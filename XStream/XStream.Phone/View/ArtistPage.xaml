@@ -17,6 +17,7 @@
     d:DataContext="{d:DesignData Source=../SampleData/ArtistViewModelSampleData.xaml}">
 
     <phone:PhoneApplicationPage.Resources>
+        <core:AlbumsListValueConverter x:Key="AlbumsListValueConverter"/>
         <core:LowercaseValueConverter x:Key="LowercaseValueConverter"/>
         <core:UppercaseValueConverter x:Key="UppercaseValueConverter"/>
     </phone:PhoneApplicationPage.Resources>
@@ -47,7 +48,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
-            <ListBox ItemsSource="{Binding Albums}"
+            <ListBox ItemsSource="{Binding Albums, Converter={StaticResource AlbumsListValueConverter}}"
                      SelectedItem="{Binding SelectedAlbum, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

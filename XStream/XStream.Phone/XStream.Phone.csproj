@@ -95,8 +95,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core\AlbumsListValueConverter.cs" />
     <Compile Include="Core\LowercaseValueConverter.cs" />
     <Compile Include="Core\NavigationService.cs" />
+    <Compile Include="Core\ArtistsListValueConverter.cs" />
+    <Compile Include="Core\TracksListValueConverter.cs" />
     <Compile Include="Core\UppercaseValueConverter.cs" />
     <Compile Include="Model\AlbumsList.cs" />
     <Compile Include="Model\ArtistsList.cs" />
