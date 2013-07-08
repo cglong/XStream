@@ -7,6 +7,9 @@ namespace XStream.Phone.Model
         [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("year")]
+        public int Year { get; set; }
+
         [JsonProperty("cover")]
         public string ImageURL { get; set; }
 

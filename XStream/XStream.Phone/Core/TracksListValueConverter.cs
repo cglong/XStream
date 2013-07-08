@@ -13,7 +13,7 @@ namespace XStream.Phone.Core
         {
             if (value is IList<Track>)
             {
-                return (value as IList<Track>).OrderBy(o => o.Title);
+                return (value as IList<Track>).OrderBy(o => o.TrackNumber);
             }
             else
             {

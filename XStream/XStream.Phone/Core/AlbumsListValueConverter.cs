@@ -13,7 +13,7 @@ namespace XStream.Phone.Core
         {
             if (value is IList<Album>)
             {
-                return (value as IList<Album>).OrderBy(o => o.Name);
+                return (value as IList<Album>).OrderByDescending(o => o.Year);
             }
             else
             {
