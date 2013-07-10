@@ -5,6 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:core="clr-namespace:XStream.Phone.Core"
+    xmlns:telerikData="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Data"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
@@ -48,9 +50,12 @@
         <!--ContentPanel - place additional content here-->
         <Grid Grid.Row="1"
               Margin="12,0,12,0">
-            <ListBox ItemsSource="{Binding Artists, Converter={StaticResource ArtistsListValueConverter}}"
-                     SelectedItem="{Binding SelectedArtist, Mode=TwoWay}">
-                <ListBox.ItemTemplate>
+            <telerikData:RadJumpList x:Name="jumpList"
+                                     ItemsSource="{Binding Artists, Converter={StaticResource ArtistsListValueConverter}}"
+                                     SelectedItem="{Binding SelectedArtist, Mode=TwoWay}"
+                                     IsStickyHeaderEnabled="True"
+                                     GroupPickerItemTap="jumpList_GroupPickerItemTap">
+                <telerikData:RadJumpList.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="150">
                             <Grid.ColumnDefinitions>
@@ -69,8 +74,24 @@
                                        Grid.Column="1"/>
                         </Grid>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </telerikData:RadJumpList.ItemTemplate>
+                <telerikData:RadJumpList.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <Border Background="{StaticResource PhoneAccentBrush}"
+                                Height="64"
+                                Width="64"
+                                HorizontalAlignment="Left"
+                                Margin="4">
+                            <TextBlock Text="{Binding Key}"
+                                       FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                       FontFamily="{StaticResource PhoneFontFamilyLight}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Bottom"
+                                       Margin="4"/>
+                        </Border>
+                    </DataTemplate>
+                </telerikData:RadJumpList.GroupHeaderTemplate>
+            </telerikData:RadJumpList>
         </Grid>
     </Grid>
  

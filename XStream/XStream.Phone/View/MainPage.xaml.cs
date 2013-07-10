@@ -1,4 +1,5 @@
 ﻿using Microsoft.Phone.Controls;
+using Telerik.Windows.Controls;
 
 namespace XStream.Phone.View
 {
@@ -7,6 +8,11 @@ namespace XStream.Phone.View
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void jumpList_GroupPickerItemTap(object sender, GroupPickerItemTapEventArgs e)
+        {
+
         }
     }
 }
