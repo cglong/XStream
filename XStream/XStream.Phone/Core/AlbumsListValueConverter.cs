@@ -17,7 +17,7 @@ namespace XStream.Phone.Core
             }
             else
             {
-                return null;
+                return value;
             }
         }
 
