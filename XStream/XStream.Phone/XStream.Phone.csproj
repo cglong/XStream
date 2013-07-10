@@ -84,11 +84,8 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
-    <Reference Include="Telerik.Windows.Controls.Primitives">
-      <HintPath>..\References\Telerik.Windows.Controls.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Windows.Core">
-      <HintPath>..\References\Telerik.Windows.Core.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\References\Telerik.Windows.Controls.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
