@@ -90,15 +90,15 @@ namespace XStream.Phone.ViewModel
             return new Uri(uri, UriKind.Relative);
         }
 
-        public static Uri TrackPageUri(Album album)
+        public static Uri TrackPageUri(Artist artist, Album album)
         {
-            string uri = string.Format("/View/TrackPage.xaml?name={0}&id={1}", album.Name, album.Id);
+            string uri = string.Format("/View/TrackPage.xaml?artistName={0}&name={1}&id={2}&imageURL={3}", artist.Name, album.Name, album.Id, album.ImageURL);
             return new Uri(uri, UriKind.Relative);
         }
 
-        public static Uri NowPlayingPageUri(Album album, Track track)
+        public static Uri NowPlayingPageUri(Artist artist, Album album, Track track)
         {
-            string uri = string.Format("/View/NowPlayingPage.xaml?album={0}&track={1}", album.Id, track.TrackNumber);
+            string uri = string.Format("/View/NowPlayingPage.xaml?artistName={0}&imageURL={1}&title={2}", artist.Name, album.ImageURL, track.Title);
             return new Uri(uri, UriKind.Relative);
         }
         

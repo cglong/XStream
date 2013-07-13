@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
+using XStream.Phone.ViewModel;
+using XStream.Phone.Model;
 
 namespace XStream.Phone.View
 {
@@ -15,6 +10,25 @@ namespace XStream.Phone.View
         public NowPlayingPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var viewModel = DataContext as NowPlayingViewModel;
+
+            viewModel.Artist = new Artist
+            {
+                Name = NavigationContext.QueryString["artistName"],
+            };
+            viewModel.Album = new Album
+            {
+                ImageURL = NavigationContext.QueryString["imageURL"],
+            };
+            viewModel.Track = new Track
+            {
+                Title = NavigationContext.QueryString["title"],
+            };
         }
     }
 }

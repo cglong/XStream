@@ -120,7 +120,7 @@ namespace XStream.Phone.ViewModel
             {
                 if (Set(SelectedAlbumPropertyName, ref _selectedAlbum, value) && value != null)
                 {
-                    _navigationService.NavigateTo(ViewModelLocator.TrackPageUri(_selectedAlbum));
+                    _navigationService.NavigateTo(ViewModelLocator.TrackPageUri(Artist, SelectedAlbum));
                     SelectedAlbum = null;
                 }
             }

@@ -56,6 +56,8 @@ namespace XStream.Phone.ViewModel
             }
         }
 
+        public Artist Artist { get; set; }
+
         private Album _album;
         private const string AlbumPropertyName = "Album";
         public Album Album
@@ -109,7 +111,7 @@ namespace XStream.Phone.ViewModel
             {
                 if (Set(SelectedTrackPropertyName, ref _selectedTrack, value) && value != null)
                 {
-                    _navigationService.NavigateTo(ViewModelLocator.NowPlayingPageUri(_album, _selectedTrack));
+                    _navigationService.NavigateTo(ViewModelLocator.NowPlayingPageUri(Artist, Album, SelectedTrack));
                     SelectedTrack = null;
                 }
             }

@@ -22,10 +22,17 @@ namespace XStream.Phone.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            (DataContext as TrackViewModel).Album = new Album
+            var viewModel = DataContext as TrackViewModel;
+
+            viewModel.Artist = new Artist
+            {
+                Name = NavigationContext.QueryString["artistName"],
+            };
+            viewModel.Album = new Album
             {
                 Name = NavigationContext.QueryString["name"],
                 Id = int.Parse(NavigationContext.QueryString["id"]),
+                ImageURL = NavigationContext.QueryString["imageURL"],
             };
         }
 
