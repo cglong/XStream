@@ -68,7 +68,7 @@ namespace XStream.Phone.ViewModel
             }
             set
             {
-                Set(AlbumPropertyName, ref _album, value);
+                _album = value;
                 Tracks.Clear();
                 TracksList tracksList = DataManager.Current.Load<TracksList>(_album.Id, (result) => { Tracks = result.Tracks; }, null);
                 tracksList.PropertyChanged += (s, e) => { IsLoading = (s as TracksList).IsUpdating; };
