@@ -48,6 +48,7 @@ namespace XStream.Phone.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ArtistViewModel>();
             SimpleIoc.Default.Register<TrackViewModel>();
+            SimpleIoc.Default.Register<NowPlayingViewModel>();
         }
 
         public MainViewModel Main
@@ -75,6 +76,14 @@ namespace XStream.Phone.ViewModel
 
         }
 
+        public NowPlayingViewModel NowPlaying
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<NowPlayingViewModel>();
+            }
+        }
+
         public static Uri ArtistPageUri(Artist artist)
         {
             string uri = string.Format("/View/ArtistPage.xaml?name={0}&id={1}", artist.Name, artist.Id);
@@ -84,6 +93,12 @@ namespace XStream.Phone.ViewModel
         public static Uri TrackPageUri(Album album)
         {
             string uri = string.Format("/View/TrackPage.xaml?name={0}&id={1}", album.Name, album.Id);
+            return new Uri(uri, UriKind.Relative);
+        }
+
+        public static Uri NowPlayingPageUri(Album album, Track track)
+        {
+            string uri = string.Format("/View/NowPlayingPage.xaml?album={0}&track={1}", album.Id, track.TrackNumber);
             return new Uri(uri, UriKind.Relative);
         }
         

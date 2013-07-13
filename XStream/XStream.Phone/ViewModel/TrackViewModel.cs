@@ -109,13 +109,8 @@ namespace XStream.Phone.ViewModel
             {
                 if (Set(SelectedTrackPropertyName, ref _selectedTrack, value) && value != null)
                 {
-                    //MediaElement launcher = new MediaElement();
-                    MediaPlayerLauncher launcher = new MediaPlayerLauncher();
-                    launcher.Media = new Uri(value.Files[audioKey].Substring(0, 28) + value.Files[audioKey].Substring(34, value.Files[audioKey].Length-34), UriKind.Absolute);
-                    launcher.Show();
-                    //launcher.Play();
-                    
-        
+                    _navigationService.NavigateTo(ViewModelLocator.NowPlayingPageUri(_album, _selectedTrack));
+                    SelectedTrack = null;
                 }
             }
         }
