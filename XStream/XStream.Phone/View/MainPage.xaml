@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:core="clr-namespace:XStream.Phone.Core"
     xmlns:telerikData="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Data"
+    xmlns:local="clr-namespace:XStream.Phone.View"
     xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -91,6 +92,70 @@
                         </Border>
                     </DataTemplate>
                 </telerikData:RadJumpList.GroupHeaderTemplate>
+                <telerikData:RadJumpList.StickyHeaderTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0"
+                            HorizontalAlignment="Stretch"
+                            Background="{StaticResource PhoneBackgroundBrush}"
+                            Padding="0, 0, 0, 8">
+                            <Border VerticalAlignment="Top"
+                                Background="{StaticResource PhoneAccentBrush}"
+                                Width="64"
+                                Height="64"
+                                HorizontalAlignment="Left"
+                                Margin="4, 4, 4, 4"
+                                BorderThickness="0">
+                                <TextBlock FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                       FontFamily="{StaticResource PhoneFontFamilyLight}"
+                                       Text="{Binding Key}"
+                                       Margin="4"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Left"/>
+                            </Border>
+                        </Border>
+                    </DataTemplate>
+                </telerikData:RadJumpList.StickyHeaderTemplate>
+                <telerikData:RadJumpList.GroupPickerItemTemplateSelector>
+                    <local:ArtistsTemplateSelector x:Name="templateSelector">
+                        <local:ArtistsTemplateSelector.LinkedItemTemplate>
+                            <DataTemplate>
+                                <Border Background="{StaticResource PhoneAccentBrush}"
+                                        Width="96"
+                                        Height="96"
+                                        Margin="6">
+                                    <TextBlock Margin="8"
+                                               Text="{Binding}"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Bottom"
+                                               FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                                </Border>
+                            </DataTemplate>
+                        </local:ArtistsTemplateSelector.LinkedItemTemplate>
+                        <local:ArtistsTemplateSelector.EmptyItemTemplate>
+                            <DataTemplate>
+                                <Border Background="{StaticResource PhoneChromeBrush}"
+                                        Width="96"
+                                        Height="96"
+                                        Margin="6"
+                                        IsHitTestVisible="False">
+                                    <TextBlock Margin="8"
+                                               Text="{Binding}"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Bottom"
+                                               FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                                               Foreground="{StaticResource PhoneDisabledBrush}"/>
+                                </Border>
+                            </DataTemplate>
+                        </local:ArtistsTemplateSelector.EmptyItemTemplate>
+                    </local:ArtistsTemplateSelector>
+                </telerikData:RadJumpList.GroupPickerItemTemplateSelector>
+                <telerikData:RadJumpList.GroupPickerItemsPanel>
+                    <ItemsPanelTemplate>
+                        <telerikPrimitives:RadWrapPanel Margin="8,30,0,0"
+                                                    ItemWidth="115"
+                                                    ItemHeight="106"/>
+                    </ItemsPanelTemplate>
+                </telerikData:RadJumpList.GroupPickerItemsPanel>
             </telerikData:RadJumpList>
         </Grid>
     </Grid>

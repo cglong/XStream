@@ -95,6 +95,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Telerik.Windows.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2013.2.612.2040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -115,6 +116,7 @@
     <Compile Include="View\ArtistPage.xaml.cs">
       <DependentUpon>ArtistPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ArtistsTemplateSelector.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
