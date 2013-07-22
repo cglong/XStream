@@ -1,32 +1,21 @@
-﻿using Microsoft.Phone.Controls;
-using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Phone.Controls;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Data;
-using System.Windows.Resources;
-using System.IO;
 using XStream.Phone.Model;
-
 
 namespace XStream.Phone.View
 {
     public partial class MainPage : PhoneApplicationPage
     {
-
         private string alphabet = "#abcdefghijklmnopqrstuvwxyz";
 
         public MainPage()
         {
             InitializeComponent();
+            Messenger.Default.Register<DialogMessage>(this, DisplayLoginPrompt);
 
             // we do not want async balance since item templates are simple
             this.jumpList.IsAsyncBalanceEnabled = false;
@@ -49,14 +38,26 @@ namespace XStream.Phone.View
 
             GenericSortDescriptor<Artist, string> sort = new GenericSortDescriptor<Artist, string>(artist => artist.Name);
             this.jumpList.SortDescriptors.Add(sort);
-
-            
-
-            // assign data source
-            //this.contacts = this.LoadContacts();
         }
 
-        
+        private void DisplayLoginPrompt(DialogMessage message)
+        {
+            Style usernameStyle = new Style(typeof(RadTextBox));
+            usernameStyle.Setters.Add(new Setter(RadTextBox.HeaderProperty, "username"));
+            Style passwordStyle = new Style(typeof(RadPasswordBox));
+            passwordStyle.Setters.Add(new Setter(RadPasswordBox.HeaderProperty, "password"));
+
+            InputPromptSettings settings = new InputPromptSettings();
+            settings.Field1Mode = InputMode.Text;
+            settings.Field1Style = usernameStyle;
+            settings.Field2Mode = InputMode.Password;
+            settings.Field2Style = passwordStyle;
+
+            string messageTitle = "XStream";
+            string messageText = "Please enter your login information:";
+
+            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText);
+        }
 
         private void jumpList_GroupPickerItemTap(object sender, GroupPickerItemTapEventArgs e)
         {

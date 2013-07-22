@@ -1,5 +1,6 @@
 using AgFx;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +30,8 @@ namespace XStream.Phone.ViewModel
             _navigationService = navigationService;
             ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
             artistsList.PropertyChanged += (s, e) => { IsLoading = (s as ArtistsList).IsUpdating; };
+
+            Messenger.Default.Send<DialogMessage>(new DialogMessage(null, null));
         }
 
         public string ApplicationTitle
