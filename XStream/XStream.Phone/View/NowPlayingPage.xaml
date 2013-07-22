@@ -21,21 +21,35 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="480"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
         <TextBlock Text="{Binding Title}"
                    Style="{StaticResource PhoneTextTitle2Style}"
-                   Grid.Row="1"/>
+                   Grid.Row="1"
+                   Grid.ColumnSpan="3"/>
 
         <TextBlock Text="{Binding ArtistName}"
                    Style="{StaticResource PhoneTextTitle3Style}"
-                   Grid.Row="2"/>
+                   Grid.Row="2"
+                   Grid.ColumnSpan="3"/>
+        
+        <Image Source="/PlayIcon.png"
+               Height="48"
+               Width="48"
+               Grid.Row="3"
+               Grid.Column="1"/>
         
         <Image Source="{Binding ImageURL}"
-               Grid.Row="4"/>
+               Grid.Row="4"
+               Grid.ColumnSpan="3"/>
     </Grid>
 
 </phone:PhoneApplicationPage>
