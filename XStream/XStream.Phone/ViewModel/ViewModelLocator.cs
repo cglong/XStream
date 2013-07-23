@@ -98,7 +98,7 @@ namespace XStream.Phone.ViewModel
 
         public static Uri NowPlayingPageUri(Artist artist, Album album, Track track)
         {
-            string uri = string.Format("/View/NowPlayingPage.xaml?artistName={0}&imageURL={1}&title={2}", artist.Name, album.ImageURL, track.Title);
+            string uri = string.Format("/View/NowPlayingPage.xaml?artistName={0}&imageURL={1}&title={2}&mp3={3}", artist.Name, album.ImageURL, track.Title, track.Mp3);
             return new Uri(uri, UriKind.Relative);
         }
         

@@ -42,5 +42,13 @@ namespace XStream.Phone.ViewModel
                 return Track.Title;
             }
         }
+
+        public string Mp3
+        {
+            get
+            {
+                return Track.Mp3;
+            }
+        }
     }
 }

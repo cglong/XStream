@@ -35,7 +35,9 @@
                    Style="{StaticResource PhoneTextTitle2Style}"
                    Grid.Row="1"
                    Grid.ColumnSpan="3"/>
-
+        
+        <MediaElement Source="{Binding Mp3}"/>
+        
         <TextBlock Text="{Binding ArtistName}"
                    Style="{StaticResource PhoneTextTitle3Style}"
                    Grid.Row="2"

@@ -2,6 +2,7 @@
 using Microsoft.Phone.Controls;
 using XStream.Phone.ViewModel;
 using XStream.Phone.Model;
+using System.Windows.Controls;
 
 namespace XStream.Phone.View
 {
@@ -28,6 +29,7 @@ namespace XStream.Phone.View
             viewModel.Track = new Track
             {
                 Title = NavigationContext.QueryString["title"],
+                Mp3 = NavigationContext.QueryString["mp3"],
             };
         }
     }
