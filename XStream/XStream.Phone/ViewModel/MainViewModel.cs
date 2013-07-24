@@ -31,7 +31,7 @@ namespace XStream.Phone.ViewModel
             ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
             artistsList.PropertyChanged += (s, e) => { IsLoading = (s as ArtistsList).IsUpdating; };
 
-            Messenger.Default.Send<DialogMessage>(new DialogMessage(null, null));
+            Messenger.Default.Send<LoginMessage>(new LoginMessage(Login));
         }
 
         public string ApplicationTitle
@@ -111,6 +111,10 @@ namespace XStream.Phone.ViewModel
                     SelectedArtist = null;
                 }
             }
+        }
+
+        private void Login(Telerik.Windows.Controls.InputPromptClosedEventArgs e)
+        {
         }
     }
 }

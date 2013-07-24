@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Data;
+using XStream.Phone.Core;
 using XStream.Phone.Model;
 
 namespace XStream.Phone.View
@@ -15,7 +16,7 @@ namespace XStream.Phone.View
         public MainPage()
         {
             InitializeComponent();
-            Messenger.Default.Register<DialogMessage>(this, DisplayLoginPrompt);
+            Messenger.Default.Register<LoginMessage>(this, DisplayLoginPrompt);
 
             // we do not want async balance since item templates are simple
             this.jumpList.IsAsyncBalanceEnabled = false;
@@ -40,7 +41,7 @@ namespace XStream.Phone.View
             this.jumpList.SortDescriptors.Add(sort);
         }
 
-        private void DisplayLoginPrompt(DialogMessage message)
+        private void DisplayLoginPrompt(LoginMessage message)
         {
             Style usernameStyle = new Style(typeof(RadTextBox));
             usernameStyle.Setters.Add(new Setter(RadTextBox.HeaderProperty, "username"));
@@ -56,7 +57,7 @@ namespace XStream.Phone.View
             string messageTitle = "XStream";
             string messageText = "Please enter your login information:";
 
-            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText);
+            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText, message.Callback);
         }
 
         private void jumpList_GroupPickerItemTap(object sender, GroupPickerItemTapEventArgs e)
