@@ -57,7 +57,7 @@ namespace XStream.Phone.View
             string messageTitle = "XStream";
             string messageText = "Please enter your login information:";
 
-            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText, message.Callback);
+            RadInputPrompt.Show(settings, messageTitle, MessageBoxButtons.OKCancel, messageText, closedHandler:message.Callback);
         }
 
         private void jumpList_GroupPickerItemTap(object sender, GroupPickerItemTapEventArgs e)

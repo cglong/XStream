@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO.IsolatedStorage;
 using XStream.Phone.Core;
 using XStream.Phone.Model;
 
@@ -28,10 +29,6 @@ namespace XStream.Phone.ViewModel
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
-            ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
-            artistsList.PropertyChanged += (s, e) => { IsLoading = (s as ArtistsList).IsUpdating; };
-
-            Messenger.Default.Send<LoginMessage>(new LoginMessage(Login));
         }
 
         public string ApplicationTitle
@@ -78,6 +75,17 @@ namespace XStream.Phone.ViewModel
         {
             get
             {
+                if (_artists.Count == 0)
+                {
+                    if (IsolatedStorageSettings.ApplicationSettings.Contains("token"))
+                    {
+                        LoadArtists();
+                    }
+                    else
+                    {
+                        Messenger.Default.Send<LoginMessage>(new LoginMessage(Login));
+                    }
+                }
                 return _artists;
             }
             set
@@ -115,6 +123,13 @@ namespace XStream.Phone.ViewModel
 
         private void Login(Telerik.Windows.Controls.InputPromptClosedEventArgs e)
         {
+            LoadArtists();
+        }
+
+        private void LoadArtists()
+        {
+            ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
+            artistsList.PropertyChanged += (s, e) => { IsLoading = (s as ArtistsList).IsUpdating; };
         }
     }
 }
