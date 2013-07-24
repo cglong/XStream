@@ -77,7 +77,7 @@ namespace XStream.Phone.ViewModel
             {
                 if (_artists.Count == 0)
                 {
-                    if (IsolatedStorageSettings.ApplicationSettings.Contains("token"))
+                    if (IsolatedStorageSettings.ApplicationSettings.Contains("port"))
                     {
                         LoadArtists();
                     }
