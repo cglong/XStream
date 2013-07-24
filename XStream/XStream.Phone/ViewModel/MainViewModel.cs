@@ -123,7 +123,10 @@ namespace XStream.Phone.ViewModel
 
         private void Login(Telerik.Windows.Controls.InputPromptClosedEventArgs e)
         {
-            LoadArtists();
+            IDictionary<string, string> login = new Dictionary<string, string>(2);
+            login.Add("name", e.Text);
+            login.Add("password", e.Text2);
+            DataManager.Current.Load<User>(login, (result) => { LoadArtists(); }, null);
         }
 
         private void LoadArtists()

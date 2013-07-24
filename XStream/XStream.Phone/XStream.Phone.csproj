@@ -111,6 +111,7 @@
     <Compile Include="Model\AlbumsList.cs" />
     <Compile Include="Model\ArtistsList.cs" />
     <Compile Include="Model\TracksList.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\ArtistViewModel.cs" />
     <Compile Include="ViewModel\NowPlayingViewModel.cs" />
     <Compile Include="ViewModel\TrackViewModel.cs" />
