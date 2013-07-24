@@ -61,11 +61,17 @@ namespace XStream.Phone.ViewModel
             }
         }
 
+        private string _loadingTitle;
+        private const string LoadingTitlePropertyName = "LoadingTitle";
         public string LoadingTitle
         {
             get
             {
-                return "Loading...";
+                return _loadingTitle;
+            }
+            set
+            {
+                Set(LoadingTitlePropertyName, ref _loadingTitle, value);
             }
         }
 
@@ -127,12 +133,15 @@ namespace XStream.Phone.ViewModel
             login.Add("name", e.Text);
             login.Add("password", e.Text2);
 
+            this.LoadingTitle = "Signing in...";
             var settings = IsolatedStorageSettings.ApplicationSettings;
-            DataManager.Current.Load<User>(login, (result) => { settings.Add("port", result.Port); settings.Save(); LoadArtists(); }, null);
+            User user = DataManager.Current.Load<User>(login, (result) => { settings.Add("port", result.Port); settings.Save(); LoadArtists(); }, null);
+            user.PropertyChanged += (s, ev) => { IsLoading = (s as User).IsUpdating; };
         }
 
         private void LoadArtists()
         {
+            this.LoadingTitle = "Loading...";
             ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
             artistsList.PropertyChanged += (s, e) => { IsLoading = (s as ArtistsList).IsUpdating; };
         }
