@@ -55,6 +55,7 @@
                                      ItemsSource="{Binding Artists, Converter={StaticResource ArtistsListValueConverter}}"
                                      SelectedItem="{Binding SelectedArtist, Mode=TwoWay}"
                                      IsStickyHeaderEnabled="True"
+                                     EmptyContent=""
                                      GroupPickerItemTap="jumpList_GroupPickerItemTap">
                 <telerikData:RadJumpList.ItemTemplate>
                     <DataTemplate>
