@@ -1,4 +1,5 @@
 ﻿using AgFx;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,9 @@ namespace XStream.Phone.Model
         {
         }
 
+        [JsonProperty("port")]
+        public int Port { get; set; }
+
         public class UserDataLoader : IDataLoader<UserLoadContext>
         {
             private const string UriFormat = "http://xstream.cloudapp.net:9001/user={0}/pass={1}";
@@ -26,7 +30,12 @@ namespace XStream.Phone.Model
 
             public object Deserialize(UserLoadContext loadContext, Type objectType, Stream stream)
             {
-                return new User();
+                string json;
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    json = reader.ReadToEnd();
+                }
+                return JsonConvert.DeserializeObject<User>(json);
             }
         }
 

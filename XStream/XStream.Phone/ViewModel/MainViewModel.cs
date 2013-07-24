@@ -126,7 +126,9 @@ namespace XStream.Phone.ViewModel
             IDictionary<string, string> login = new Dictionary<string, string>(2);
             login.Add("name", e.Text);
             login.Add("password", e.Text2);
-            DataManager.Current.Load<User>(login, (result) => { LoadArtists(); }, null);
+
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+            DataManager.Current.Load<User>(login, (result) => { settings.Add("port", result.Port); settings.Save(); LoadArtists(); }, null);
         }
 
         private void LoadArtists()

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.IsolatedStorage;
 
 namespace XStream.Phone.Model
 {
@@ -20,10 +21,11 @@ namespace XStream.Phone.Model
 
         public class TracksListDataLoader : IDataLoader<TracksListLoadContext>
         {
-            private const string UriFormat = "http://xstream.cloudapp.net:9002/tracks?album={0}";
+            private const string UriFormat = "http://xstream.cloudapp.net:{0}/tracks?album={1}";
             public LoadRequest GetLoadRequest(TracksListLoadContext loadContext, Type objectType)
             {
-                string uri = String.Format(UriFormat, loadContext.Id);
+                int? port = IsolatedStorageSettings.ApplicationSettings["port"] as int?;
+                string uri = String.Format(UriFormat, port, loadContext.Id);
                 return new WebLoadRequest(loadContext, new Uri(uri));
             }
 
