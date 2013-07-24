@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Phone.Controls;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using Telerik.Windows.Controls;
@@ -70,6 +71,10 @@ namespace XStream.Phone.View
                     return;
                 }
             }
+        }
+
+        private void logoutMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }
