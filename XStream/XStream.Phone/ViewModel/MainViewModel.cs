@@ -83,7 +83,7 @@ namespace XStream.Phone.ViewModel
             {
                 if (_artists.Count == 0)
                 {
-                    if (IsolatedStorageSettings.ApplicationSettings.Contains("port"))
+                    if (IsolatedStorageSettings.ApplicationSettings.Contains("token"))
                     {
                         LoadArtists();
                     }
@@ -135,7 +135,7 @@ namespace XStream.Phone.ViewModel
 
             this.LoadingTitle = "Signing in...";
             var settings = IsolatedStorageSettings.ApplicationSettings;
-            User user = DataManager.Current.Load<User>(login, (result) => { settings.Add("port", result.Port); settings.Save(); LoadArtists(); }, null);
+            User user = DataManager.Current.Load<User>(login, (result) => { settings.Add("token", result.Token); settings.Save(); LoadArtists(); }, null);
             user.PropertyChanged += (s, ev) => { IsLoading = (s as User).IsUpdating; };
         }
 

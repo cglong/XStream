@@ -16,8 +16,8 @@ namespace XStream.Phone.Model
         {
         }
 
-        [JsonProperty("port")]
-        public int Port { get; set; }
+        [JsonProperty("token")]
+        public int Token { get; set; }
 
         public class UserDataLoader : IDataLoader<UserLoadContext>
         {

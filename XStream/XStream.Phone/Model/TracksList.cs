@@ -21,11 +21,11 @@ namespace XStream.Phone.Model
 
         public class TracksListDataLoader : IDataLoader<TracksListLoadContext>
         {
-            private const string UriFormat = "http://xstream.cloudapp.net:{0}/tracks?album={1}";
+            private const string UriFormat = "http://xstream.cloudapp.net:9001/token={0}/tracks/album={1}";
             public LoadRequest GetLoadRequest(TracksListLoadContext loadContext, Type objectType)
             {
-                int? port = IsolatedStorageSettings.ApplicationSettings["port"] as int?;
-                string uri = String.Format(UriFormat, port, loadContext.Id);
+                int? token = IsolatedStorageSettings.ApplicationSettings["token"] as int?;
+                string uri = String.Format(UriFormat, token, loadContext.Id);
                 return new WebLoadRequest(loadContext, new Uri(uri));
             }
 
