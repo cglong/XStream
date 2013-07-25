@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.IsolatedStorage;
 
 namespace XStream.Phone.Model
 {
@@ -12,7 +13,7 @@ namespace XStream.Phone.Model
         {
         }
 
-        public User(IDictionary<string, string> login) : base(new UserLoadContext(login))
+        public User(IDictionary<string, string> info) : base(new UserLoadContext(info))
         {
         }
 
@@ -21,10 +22,20 @@ namespace XStream.Phone.Model
 
         public class UserDataLoader : IDataLoader<UserLoadContext>
         {
-            private const string UriFormat = "http://xstream.cloudapp.net:9001/user={0}/pass={1}";
+            private const string LoginUriFormat = "http://xstream.cloudapp.net:9001/user={0}/pass={1}";
+            private const string LogoutUriFormat = "http://xstream.cloudapp.net:9001/token={0}/logout";
             public LoadRequest GetLoadRequest(UserLoadContext loadContext, Type objectType)
             {
-                string uri = String.Format(UriFormat, loadContext.Name, loadContext.Password);
+                string uri;
+                if (loadContext.IsLoggingIn)
+                {
+                    uri = String.Format(LoginUriFormat, loadContext.Name, loadContext.Password);
+                }
+                else
+                {
+                    int? token = IsolatedStorageSettings.ApplicationSettings["token"] as int?;
+                    uri = String.Format(LogoutUriFormat, token);
+                }
                 return new WebLoadRequest(loadContext, new Uri(uri));
             }
 
@@ -35,7 +46,7 @@ namespace XStream.Phone.Model
                 {
                     json = reader.ReadToEnd();
                 }
-                return JsonConvert.DeserializeObject<User>(json);
+                return loadContext.IsLoggingIn ? JsonConvert.DeserializeObject<User>(json) : new User();
             }
         }
 
@@ -59,7 +70,15 @@ namespace XStream.Phone.Model
             }
         }
 
-        public UserLoadContext(IDictionary<string, string> login) : base(login)
+        public bool IsLoggingIn
+        {
+            get
+            {
+                return !((IDictionary<string, string>)Identity).ContainsKey("logout");
+            }
+        }
+
+        public UserLoadContext(IDictionary<string, string> info) : base(info)
         {
         }
     }

@@ -75,6 +75,8 @@ namespace XStream.Phone.View
 
         private void logoutMenuItem_Click(object sender, EventArgs e)
         {
+            Type type = DataContext.GetType();
+            Messenger.Default.Send<LogoutMessage>(new LogoutMessage(), type);
         }
     }
 }

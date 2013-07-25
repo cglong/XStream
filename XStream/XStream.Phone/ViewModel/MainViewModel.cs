@@ -29,6 +29,7 @@ namespace XStream.Phone.ViewModel
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
+            Messenger.Default.Register<LogoutMessage>(this, this.GetType(), Logout);
         }
 
         public string ApplicationTitle
@@ -129,13 +130,13 @@ namespace XStream.Phone.ViewModel
 
         private void Login(Telerik.Windows.Controls.InputPromptClosedEventArgs e)
         {
-            IDictionary<string, string> login = new Dictionary<string, string>(2);
-            login.Add("name", e.Text);
-            login.Add("password", e.Text2);
+            IDictionary<string, string> info = new Dictionary<string, string>(2);
+            info.Add("name", e.Text);
+            info.Add("password", e.Text2);
 
             this.LoadingTitle = "Signing in...";
             var settings = IsolatedStorageSettings.ApplicationSettings;
-            User user = DataManager.Current.Load<User>(login, (result) => { settings.Add("token", result.Token); settings.Save(); LoadArtists(); }, null);
+            User user = DataManager.Current.Load<User>(info, (result) => { settings.Add("token", result.Token); settings.Save(); LoadArtists(); }, null);
             user.PropertyChanged += (s, ev) => { IsLoading = (s as User).IsUpdating; };
         }
 
@@ -144,6 +145,13 @@ namespace XStream.Phone.ViewModel
             this.LoadingTitle = "Loading...";
             ArtistsList artistsList = DataManager.Current.Load<ArtistsList>("", (result) => { Artists = result.Artists; }, null);
             artistsList.PropertyChanged += (s, e) => { IsLoading = (s as ArtistsList).IsUpdating; };
+        }
+
+        private void Logout(LogoutMessage message)
+        {
+            IDictionary<string, string> info = new Dictionary<string, string>(1);
+            info.Add("logout", "true");
+            DataManager.Current.Load<User>(info);
         }
     }
 }

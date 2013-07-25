@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Core\AlbumsListValueConverter.cs" />
     <Compile Include="Core\LoginMessage.cs" />
+    <Compile Include="Core\LogoutMessage.cs" />
     <Compile Include="Core\LowercaseValueConverter.cs" />
     <Compile Include="Core\NavigationService.cs" />
     <Compile Include="Core\ArtistsListValueConverter.cs" />
