@@ -151,7 +151,19 @@ namespace XStream.Phone.ViewModel
         {
             IDictionary<string, string> info = new Dictionary<string, string>(1);
             info.Add("logout", "true");
-            DataManager.Current.Load<User>(info);
+
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+            DataManager.Current.Load<User>(info, Cleanup<User>, null);
+        }
+
+        private void Cleanup<T>(T result)
+        {
+            var settings = IsolatedStorageSettings.ApplicationSettings;
+            settings.Remove("token");
+            settings.Save();
+
+            DataManager.Current.DeleteCache();
+            Artists = new List<Artist>();
         }
     }
 }
