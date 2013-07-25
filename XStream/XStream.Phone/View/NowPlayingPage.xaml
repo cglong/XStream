@@ -37,7 +37,7 @@
                    Grid.Row="1"
                    Grid.ColumnSpan="3"/>
         
-        <MediaElement Source="{Binding Mp3}"/>
+        <MediaElement x:Name="mediaElement" Source="{Binding Mp3}"/>
         
         <TextBlock Text="{Binding ArtistName}"
                    Style="{StaticResource PhoneTextTitle3Style}"
@@ -50,12 +50,24 @@
                                           Grid.Row="3"
                                           HorizontalAlignment="Right"/>
 
-        <telerikPrimitives:RadImageButton RestStateImageSource="/PauseButton.png"
+        <telerikPrimitives:RadImageButton x:Name="pauseButton"
+                                          RestStateImageSource="/PauseButton.png"
                                           ButtonShape="Ellipse"
                                           BorderThickness="3"
                                           Grid.Row="3"
                                           Grid.Column="1"
-                                          HorizontalAlignment="Center"/>
+                                          HorizontalAlignment="Center"
+                                          Click="pauseButton_Click"/>
+
+        <telerikPrimitives:RadImageButton x:Name="playButton"
+                                          RestStateImageSource="/PlayButton.png"
+                                          ButtonShape="Ellipse"
+                                          BorderThickness="3"
+                                          Grid.Row="3"
+                                          Grid.Column="1"
+                                          HorizontalAlignment="Center"
+                                          Visibility="Collapsed"
+                                          Click="playButton_Click"/>
 
         <telerikPrimitives:RadImageButton RestStateImageSource="/SkipButton.png"
                                           ButtonShape="Ellipse"

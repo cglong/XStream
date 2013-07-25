@@ -3,6 +3,7 @@ using Microsoft.Phone.Controls;
 using XStream.Phone.ViewModel;
 using XStream.Phone.Model;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace XStream.Phone.View
 {
@@ -31,6 +32,20 @@ namespace XStream.Phone.View
                 Title = NavigationContext.QueryString["title"],
                 Mp3 = NavigationContext.QueryString["mp3"],
             };
+        }
+
+        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Pause();
+            pauseButton.Visibility = Visibility.Collapsed;
+            playButton.Visibility = Visibility.Visible;
+        }
+
+        private void playButton_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElement.Play();
+            playButton.Visibility = Visibility.Collapsed;
+            pauseButton.Visibility = Visibility.Visible;
         }
     }
 }
