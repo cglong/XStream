@@ -152,8 +152,9 @@ namespace XStream.Phone.ViewModel
             IDictionary<string, string> info = new Dictionary<string, string>(1);
             info.Add("logout", "true");
 
-            var settings = IsolatedStorageSettings.ApplicationSettings;
-            DataManager.Current.Load<User>(info, Cleanup<User>, null);
+            this.LoadingTitle = "Signing out...";
+            User user = DataManager.Current.Load<User>(info, Cleanup<User>, null);
+            user.PropertyChanged += (s, e) => { IsLoading = (s as User).IsUpdating; };
         }
 
         private void Cleanup<T>(T result)
