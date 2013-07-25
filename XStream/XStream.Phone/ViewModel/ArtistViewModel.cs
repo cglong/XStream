@@ -1,5 +1,6 @@
 ﻿using AgFx;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +28,7 @@ namespace XStream.Phone.ViewModel
         public ArtistViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
+            Messenger.Default.Register<LogoutMessage>(this, (s) => _navigationService.GoBack());
         }
 
         public string ApplicationTitle

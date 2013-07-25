@@ -29,7 +29,7 @@ namespace XStream.Phone.ViewModel
         public MainViewModel(NavigationService navigationService)
         {
             _navigationService = navigationService;
-            Messenger.Default.Register<LogoutMessage>(this, this.GetType(), Logout);
+            Messenger.Default.Register<LogoutMessage>(this, Logout);
         }
 
         public string ApplicationTitle
