@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -21,7 +22,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="480"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -42,13 +43,26 @@
                    Style="{StaticResource PhoneTextTitle3Style}"
                    Grid.Row="2"
                    Grid.ColumnSpan="3"/>
-        
-        <Image Source="/PlayIcon.png"
-               Height="48"
-               Width="48"
-               Grid.Row="3"
-               Grid.Column="1"/>
-        
+
+        <telerikPrimitives:RadImageButton RestStateImageSource="/RewindButton.png"
+                                          ButtonShape="Ellipse"
+                                          BorderThickness="3"
+                                          Grid.Row="3"
+                                          HorizontalAlignment="Right"/>
+
+        <telerikPrimitives:RadImageButton RestStateImageSource="/PauseButton.png"
+                                          ButtonShape="Ellipse"
+                                          BorderThickness="3"
+                                          Grid.Row="3"
+                                          Grid.Column="1"
+                                          HorizontalAlignment="Center"/>
+
+        <telerikPrimitives:RadImageButton RestStateImageSource="/SkipButton.png"
+                                          ButtonShape="Ellipse"
+                                          BorderThickness="3"
+                                          Grid.Row="3"
+                                          Grid.Column="2"/>
+
         <Image Source="{Binding ImageURL}"
                Grid.Row="4"
                Grid.ColumnSpan="3"/>
